@@ -1,19 +1,19 @@
-import type { LoaderFunctionArgs } from '@remix-run/node';
-import { json } from '@remix-run/node';
-import { Link, useLoaderData } from '@remix-run/react';
+import type { LoaderFunctionArgs } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { Link, useLoaderData } from "@remix-run/react";
 
-import { getPosts } from '~/models/post.server';
+import { getPosts } from "~/models/post.server";
 
 export const loader = async () => {
-  return json({ posts: await getPosts() })
+  return json({ posts: await getPosts() });
 };
 
 export default function Posts() {
-  const {posts} = useLoaderData()
+  const { posts } = useLoaderData();
   return (
     <main>
       <h1>Posts</h1>
-      <Link to="admin" className='text-red-600 underline'>
+      <Link to="admin" className="text-red-600 underline">
         Admin
       </Link>
       <ul>
